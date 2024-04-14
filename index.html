@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Math formulas</title>
+    <meta name="description" content="Math formulas"/>
+    <meta name="author" content="Dmitrii Stebliuk"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link href="css/resets.css" rel="stylesheet" type="text/css"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="js/main.js"></script>
+
+  </head>
+
+  <body>
+    <nav>
+      <div class='menubutton'>
+        <input type='checkbox' id='menubuttoninput'>
+          <label for='menubuttoninput'>
+            <i class="fa-solid fa-bars not-active"></i>
+            <i class="fa-solid fa-xmark active"></i>
+            Config
+          </label>
+  
+      </div>
+      
+    </nav>
+    <div class='container'>
+      <div class='container-left'>
+        <div class="config">
+          <div class="config-item">
+            <label>Max: <input type="number" value="20" id="max" /></label>
+          </div>
+          <div class="config-item">
+            Skip: 
+            <div>
+              <label class="radio-item">First: <input type="radio" name="skip" value="0" /></label>
+              <label class="radio-item">Second: <input type="radio" name="skip" value="1" /></label>
+              <label class="radio-item">Result: <input type="radio" name="skip" value="2" checked="checked" /></label>
+              <label class="radio-item">Random: <input type="radio" name="skip" value="3" /></label>
+            </div>
+          </div>
+          <div class="config-item">
+            Operation: 
+            <div>
+              <label class="radio-item">Sum: <input type="radio" name="sign" value="0" /></label>
+              <label class="radio-item">Difference: <input type="radio" name="sign" value="1" /></label>
+              <label class="radio-item">Random: <input type="radio" name="sign" value="2" checked="checked" /></label>
+            </div>
+          </div>
+          <div class="config-item">
+            Simple: 
+            <div>
+              <label class="radio-item">Yes: <input type="radio" name="simple" value="1" checked="checked" /></label>
+              <label class="radio-item">No: <input type="radio" name="simple" value="0" /></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='container-right'>
+        <div class="formula">
+          <div id="left" class="number">1</div>
+          <div id="sign">+</div>
+          <div id="right" class="number">3</div>
+          <div>=</div>
+          <div id="result" class="number">4</div>
+          <button id="nextBtn" onclick="next()">Next</button>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+
+</html>

@@ -1,0 +1,110 @@
+/* essential to add this as there's a default 8px margin */
+
+body {
+  margin: 0;
+}
+
+
+/* this is also essential to avoid a world of width-based pain */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* Just making things pretty here */
+
+nav {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: purple;
+  color: white;
+}
+
+
+/*the menu button is basically a hidden check box, we use label to style it as a button */
+
+.menubutton>input {
+  display: none;
+}
+
+
+/*these toggles the display of the menu button, it works because the label after the input element */
+
+.menubutton>input:checked+label .not-active {
+  display: none;
+}
+
+.menubutton>input:not(:checked)+label .active {
+  display: none;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.container-left {
+  background-color: plum;
+  height: 95vh;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid transparent;
+  width: 1rem;
+  transition: width 300ms;
+}
+
+/* this is the bit that styles the width of the sidebar when the checkbox is checked. */
+
+body:has(.menubutton > input:checked) .container-left {
+  width: 20rem;
+}
+
+body:has(.menubutton > input:checked) .config {
+  display: block;
+}
+
+/* just style the right box for visibility */
+
+.container-right {
+  display: flex;
+  border: 1px solid lightgray;
+  height: 95vh;
+  flex-grow: 1;
+  padding: 0.5rem 0.5rem;
+  font-size: 5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.config {
+  padding: 10px; 
+  overflow: hidden;
+  display: none;
+}
+
+.config-item {
+  padding: 10px; 
+}
+
+.radio-item {
+  display: block;
+  padding: 5px 15px;
+}
+
+.formula {
+  align-items: center;
+}
+
+.debug {
+  border: 1px dashed red;
+}
+
+.number {
+  padding: 0.3rem;
+}
+
+.formula div {
+  display: inline;
+}
