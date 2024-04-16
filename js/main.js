@@ -38,41 +38,18 @@ function next() {
 function nextSum() {
     var cfg = config();
     var max = cfg[0];
-    var left = Math.floor(Math.random() * max);
-    var right = Math.floor(Math.random() * (max - left));
+    var left = Math.floor(Math.random() * (max + 1));
+    var right = Math.floor(Math.random() * (max + 1 - left));
 
     var simplify = cfg[3] == 1;
-    if (simplify) {
-      if (left < 10) {
-        var diff = 10 - left;
-        right = Math.floor(Math.random() * (diff + 1));
-      } else {
-        var digit = left % 10;
-        var diff = 10 - digit;
-        right = Math.floor(Math.random() * (diff + 1));
-      }
+    if (simplify && left < 10) {
+      while (right < 10 && left + right > 10) right = Math.floor(Math.random() * (max + 1 - left));
     }
-    
     var result = left + right;
     return [left, right, result];
 }
 
 function nextDiff() {
-    var cfg = config();
-    var max = cfg[0];
-    var left = Math.floor(Math.random() * max);
-    var right = Math.floor(Math.random() * left);
-
-    var simplify = cfg[3] == 1;
-    if (simplify) {
-      if (left % 10 == 0) {
-        right = Math.floor(Math.random() * 11);
-      } else {
-        var digit = left % 10;
-        right = Math.floor(Math.random() * (digit + 1));
-      }
-    }
-
-    var result = left - right;
-    return [left, right, result];
+  var sum = nextSum();
+  return [sum[2], sum[0], sum[1]];
 }
